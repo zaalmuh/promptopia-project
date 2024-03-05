@@ -46,10 +46,11 @@ function UpdatePrompt() {
     }
   };
 
-  return;
-  <Suspense>
-    <Form type="Edit" setPost={setPost} post={post} submitting={submitting} handleSubmit={updatePrompt} />;
-  </Suspense>;
+  return (
+    <Suspense>
+      <Form type="Edit" setPost={setPost} post={post} submitting={submitting} handleSubmit={updatePrompt} />;
+    </Suspense>
+  );
 }
 
 export default UpdatePrompt;
