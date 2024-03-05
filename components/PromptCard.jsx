@@ -26,14 +26,14 @@ function PromptCard({ post, handleTagClick, handleEdit, handleDelete }) {
           </div>
         </div>
 
-        <div className="copy_btn" onClick={() => {}}>
+        <div className="copy_btn" onClick={handleCopy}>
           <Image src={copied === post.prompt ? '/icons/tick.svg' : '/icons/copy.svg'} width={12} height={12} />
         </div>
       </div>
 
       <p className="my-4 font-satoshi text-sm text-gray-700">{post.prompt}</p>
       <p className="font-inter text-sm blue_gradient cursor-pointer" onClick={() => handleTagClick && handleTagClick(post.tag)}>
-        #{post.tag}
+        {post.tag}
       </p>
 
       {session?.user.id === post.creator._id && pathName === '/profile' && (

@@ -29,10 +29,11 @@ function UpdatePrompt() {
     setSubmitting(true);
 
     if (!promptId) return alert('Prompt ID not found');
+
     try {
       const response = await fetch(`/api/prompt/${promptId}`, {
         method: 'PATCH',
-        body: JSON.stringify({ prompt: post.prompt, userId: session?.user.id, tag: post.tag }),
+        body: JSON.stringify({ prompt: post.prompt, tag: post.tag }),
       });
 
       if (response.ok) {
@@ -48,7 +49,7 @@ function UpdatePrompt() {
 
   return (
     <Suspense>
-      <Form type="Edit" setPost={setPost} post={post} submitting={submitting} handleSubmit={updatePrompt} />;
+      <Form type="Edit" post={post} setPost={setPost} submitting={submitting} handleSubmit={updatePrompt} />
     </Suspense>
   );
 }
