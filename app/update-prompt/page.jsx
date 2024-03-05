@@ -37,7 +37,6 @@ function UpdatePrompt() {
       });
 
       if (response.ok) {
-        console.log('ok');
         router.push('/');
       }
     } catch (error) {
