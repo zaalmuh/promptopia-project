@@ -1,9 +1,9 @@
 'use client';
 import { useRouter, useSearchParams } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 
 import Form from '@components/Form';
-function UpdatePrompt() {
+function PromptUpdate() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const promptId = searchParams.get('id');
@@ -49,4 +49,10 @@ function UpdatePrompt() {
   return <Form type="Edit" post={post} setPost={setPost} submitting={submitting} handleSubmit={updatePrompt} />;
 }
 
-export default UpdatePrompt;
+export default function UpdatePrompt() {
+  return (
+    <Suspense>
+      <PromptUpdate />
+    </Suspense>
+  );
+}
