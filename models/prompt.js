@@ -1,4 +1,4 @@
-const { default: mongoose, Schema, models, model } = require('mongoose');
+import { Schema, model, models } from 'mongoose';
 
 const PromptSchema = new Schema({
   creator: {
