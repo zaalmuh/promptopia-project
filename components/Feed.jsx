@@ -54,7 +54,7 @@ export default function Feed() {
 
   return (
     <section className="feed">
-      <form className="relative w-full flex-center">
+      <form className="relative w-full flex-center" onSubmit={(e) => e.preventDefault()}>
         <input className="search_input peer" type="text" placeholder="Search for a tag or a username" value={searchText} onChange={handleSearchChange} required />
       </form>
       {searchText ? <PromptCardList data={searchedResult} handleTagClick={handleTagClick} /> : <PromptCardList data={posts} handleTagClick={handleTagClick} />}
